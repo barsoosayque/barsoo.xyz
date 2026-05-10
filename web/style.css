@@ -1,3 +1,21 @@
 body {
   font-family: Signika, Roboto, sans-serif;
+  background-size: cover;
+  background-position: center;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.bg-blur {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  backdrop-filter: blur(4px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 60%, black 85%);
+  mask-image: linear-gradient(to bottom, transparent 60%, black 85%);
+  pointer-events: none;
+}
+
+footer a, footer span {
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6), 0 0 8px rgba(0,0,0,0.4);
 }

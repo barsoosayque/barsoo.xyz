@@ -10,12 +10,12 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-gray-900 flex flex-col items-center justify-center px-4 antialiased">
-  <main class="bg-gray-800 rounded-2xl p-8 flex items-center gap-8 max-w-xl w-full shadow-2xl">
+<body class="min-h-screen flex flex-col items-center justify-center px-4 antialiased">
+  <main class="bg-gray-800 rounded-2xl p-12 flex items-center gap-12 max-w-4xl w-full shadow-2xl shadow-black/60">
     <img
       src="https://github.com/barsoosayque.png"
       alt="barsoosayque"
-      class="w-40 h-40 rounded-full border-4 border-gray-700 shrink-0"
+      class="w-60 h-60 rounded-full drop-shadow-xl shrink-0"
     >
     <div>
       <h1 class="text-3xl font-bold text-gray-100 mb-1">Egor Tolstonozhenko</h1>
@@ -26,10 +26,20 @@
     </div>
   </main>
 
-  <footer class="fixed bottom-0 w-full py-5 flex items-center justify-center gap-6 text-sm">
+  <div class="bg-blur"></div>
+  <div class="fixed inset-0 bg-black/60 -z-10"></div>
+
+  <footer class="fixed bottom-0 w-full py-5 flex items-center justify-center gap-6 text-sm drop-shadow">
     <a href="https://github.com/barsoosayque" class="text-gray-500 hover:text-gray-300 transition-colors">GitHub</a>
-    <a href="https://twitter.com/barsoosayque" class="text-gray-500 hover:text-gray-300 transition-colors">Twitter</a>
-    <a href="https://linkedin.com/in/barsoosayque" class="text-gray-500 hover:text-gray-300 transition-colors">LinkedIn</a>
+    <span class="absolute right-4 text-gray-600 text-xs">Backgrounds by <a href="https://craftpix.net/" class="hover:text-gray-400 transition-colors">@craftpix</a></span>
   </footer>
+
+  <script>
+    var imgs = [
+      '01.png', '02.png', '03.png', '04.png', '05.png',
+      '06.png', '07.png', '08.png', '09.png', '10.png',
+    ]
+    document.body.style.backgroundImage = 'url(../assets/bg/' + imgs[Math.floor(Math.random() * imgs.length)] + ')'
+  </script>
 </body>
 </html>
