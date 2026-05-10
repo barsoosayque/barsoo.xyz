@@ -8,18 +8,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center px-4 antialiased">
-  <main class="bg-gray-800 rounded-2xl p-12 flex items-center gap-12 max-w-4xl w-full shadow-2xl shadow-black/60">
+  <main class="bg-black/60 backdrop-blur-xl rounded-2xl p-20 flex items-center gap-12 max-w-4xl w-full shadow-2xl shadow-black/60">
     <img
-      src="https://github.com/barsoosayque.png"
+      src="assets/beautiful.jpg"
       alt="barsoosayque"
-      class="w-60 h-60 rounded-full drop-shadow-xl shrink-0"
+      class="w-60 h-60 rounded-full drop-shadow-xl shrink-0 ring-2 ring-blue/20 object-cover"
     >
     <div>
       <h1 class="text-3xl font-bold text-gray-100 mb-1">Egor Tolstonozhenko</h1>
-      <p class="text-sm text-indigo-500 font-mono mb-3">@barsoosayque</p>
+      <p class="text-sm text-blue-500 font-mono mb-3">@barsoosayque</p>
       <p class="text-gray-400 leading-relaxed">
         Game Developer at <a href="https://github.com/kisya-games" class="text-emerald-500 hover:text-emerald-300 transition-colors">KisyaGames</a> and <a href="https://github.com/adventure-simulator-group" class="text-emerald-500 hover:text-emerald-300 transition-colors">Adventure Simulator Group</a>.
       </p>
@@ -29,9 +30,17 @@
   <div class="bg-blur"></div>
   <div class="fixed inset-0 bg-black/60 -z-10"></div>
 
-  <footer class="fixed bottom-0 w-full py-5 flex items-center justify-center gap-6 text-sm drop-shadow">
-    <a href="https://github.com/barsoosayque" class="text-gray-500 hover:text-gray-300 transition-colors">GitHub</a>
-    <span class="absolute right-4 text-gray-600 text-xs">Backgrounds by <a href="https://craftpix.net/" class="hover:text-gray-400 transition-colors">@craftpix</a></span>
+  <footer class="fixed bottom-0 w-full py-5 flex items-center justify-center gap-6 text-m drop-shadow">
+    <a href="https://github.com/barsoosayque" class="inline-flex items-center justify-center gap-2 px-2 py-2 text-gray-400 hover:text-gray-200 transition-colors">
+      <i class="iconoir-github"></i> GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/e-tolstonozhenko" class="inline-flex items-center justify-center gap-2 px-2 py-2 text-gray-400 hover:text-gray-200 transition-colors">
+      <i class="iconoir-linkedin"></i> LinkedIn
+    </a>
+    <a href="mailto:shtoshich@gmail.com" class="inline-flex items-center justify-center gap-2 px-2 py-2 text-gray-400 hover:text-gray-200 transition-colors">
+      <i class="iconoir-mail"></i> Mail
+    </a>
+    <span class="absolute inline-flex items-center justify-center right-4 text-gray-400 ">Backgrounds by <a href="https://craftpix.net/" class="hover:text-gray-200 transition-colors">@craftpix</a></span>
   </footer>
 
   <script>
