@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,62 +7,56 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
   <link rel="icon" href="assets/favicon.png">
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen flex flex-col antialiased">
-  <p class="absolute right-4 text-gray-400/50 py-2">
-    <span>Favicon & Background by <a href="https://craftpix.net/" class="hover:text-gray-200/50 transition-colors">@craftpix</a></span>
+<body>
+  <p class="attribution">
+    Favicon &amp; Background by <a href="https://craftpix.net/">@craftpix</a>
   </p>
 
-  <main class="flex-1 flex flex-col items-center justify-center px-4 pb-6">
-    <div class="bg-black/60 backdrop-blur-xl rounded-2xl p-6 sm:p-10 md:p-20 flex flex-col md:flex-row items-center gap-6 sm:gap-12 max-w-4xl w-full shadow-2xl shadow-black/60">
+  <main class="container">
+    <article class="profile-card">
       <img
         src="assets/beautiful.jpg"
         alt="barsoosayque"
-        class="w-24 h-24 sm:w-40 sm:h-40 md:w-60 md:h-60 rounded-full drop-shadow-xl shrink-0 ring-2 ring-blue/20 object-cover"
+        class="avatar"
       >
-      <div class="space-y-2 text-center md:text-left">
-        <h1 class="text-2xl sm:text-3xl font-bold text-gray-100 mb-1">Egor Tolstonozhenko</h1>
-        <p class="text-sm text-blue-500 font-mono mb-3">@barsoosayque</p>
-        <hr class="h-px my-6 sm:my-8 bg-gray-700 border-0">
-        <p class="text-gray-400 leading-relaxed">
+      <div class="profile-info">
+        <hgroup>
+          <h1>Egor Tolstonozhenko</h1>
+          <p class="handle">@barsoosayque</p>
+        </hgroup>
+        <hr>
+        <p>
           Game Developer at
-          <a href="https://kisya.games" class="font-bold text-amber-600 hover:text-amber-400 transition-colors">Kisya Games</a>
+          <a href="https://kisya.games" class="accent">Kisya Games</a>
           and
-          <a href="https://github.com/adventure-simulator-group" class="font-bold text-amber-600 hover:text-amber-400 transition-colors">Adventure Simulator Group</a>.
+          <a href="https://github.com/adventure-simulator-group" class="accent">Adventure Simulator Group</a>.
         </p>
-        <p class="text-gray-400">
+        <p>
           Current timezone:
-          <span class="font-bold gap-1"><i class="iconoir-time-zone"></i> UTC+6</span>
+          <span class="inline-flex"><i class="iconoir-time-zone"></i> UTC+6</span>
         </p>
-        <p class="text-gray-400">
-          I speak: 🇷🇺 🇺🇸
-        </p>
+        <p>I speak: 🇷🇺 🇺🇸</p>
       </div>
-    </div>
+    </article>
   </main>
 
   <div class="bg-blur"></div>
-  <div class="fixed inset-0 bg-black/60 -z-10"></div>
+  <div class="bg-tint"></div>
 
-  <footer class="relative md:fixed bottom-0 w-full py-4 md:py-5 drop-shadow px-4">
-    <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-      <a href="https://github.com/barsoosayque" class="inline-flex items-center justify-center gap-1 px-2 py-2 text-gray-400 hover:text-gray-200 transition-colors">
-        <i class="iconoir-github"></i>GitHub
-      </a>
-      <a href="https://www.linkedin.com/in/e-tolstonozhenko" class="inline-flex items-center justify-center gap-1 px-2 py-2 text-gray-400 hover:text-gray-200 transition-colors">
-        <i class="iconoir-linkedin"></i>LinkedIn
-      </a>
-      <a href="mailto:mail@barsoo.xyz" class="inline-flex items-center justify-center gap-1 px-2 py-2 text-gray-400 hover:text-gray-200 transition-colors">
-        <i class="iconoir-mail"></i>Mail
-      </a>
-      <a href="https://t.me/jeg_er_osten" class="inline-flex items-center justify-center gap-1 px-2 py-2 text-gray-400 hover:text-gray-200 transition-colors">
-        <i class="iconoir-telegram"></i>Telegram
-      </a>
-    </div>
+  <footer>
+    <nav class="social-nav" aria-label="Social links">
+      <ul>
+        <li><a href="https://github.com/barsoosayque"><i class="iconoir-github"></i> GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/e-tolstonozhenko"><i class="iconoir-linkedin"></i> LinkedIn</a></li>
+        <li><a href="mailto:mail@barsoo.xyz"><i class="iconoir-mail"></i> Mail</a></li>
+        <li><a href="https://t.me/jeg_er_osten"><i class="iconoir-telegram"></i> Telegram</a></li>
+      </ul>
+    </nav>
   </footer>
 
   <script>

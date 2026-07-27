@@ -1,9 +1,154 @@
+:root {
+  --pico-font-family: Signika, Roboto, sans-serif;
+  --card-bg: rgba(0, 0, 0, 0.6);
+  --text-muted: #9ca3af;
+  --text-heading: #f3f4f6;
+  --accent-blue: #3b82f6;
+  --accent-amber: #d97706;
+  --accent-amber-hover: #fbbf24;
+}
+
+html {
+  height: 100%;
+}
+
 body {
-  font-family: Signika, Roboto, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-size: cover;
   background-position: center;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
+  -webkit-font-smoothing: antialiased;
+}
+
+.attribution {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  margin: 0;
+  padding: 0.5rem 0;
+  font-size: 0.7rem;
+  color: rgba(156, 163, 175, 0.5);
+}
+
+.attribution a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.attribution a:hover {
+  color: rgba(229, 231, 235, 0.5);
+}
+
+main.container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem 1.5rem;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 56rem;
+  width: 100%;
+  margin: 0;
+  padding: 1.5rem;
+  background: var(--card-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+}
+
+@media (min-width: 768px) {
+  .profile-card {
+    flex-direction: row;
+    padding: 3rem 5rem;
+    gap: 3rem;
+  }
+}
+
+.avatar {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 640px) {
+  .avatar {
+    width: 9rem;
+    height: 9rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .avatar {
+    width: 12rem;
+    height: 12rem;
+  }
+}
+
+.profile-info {
+  text-align: center;
+}
+
+.profile-info hgroup {
+  margin-bottom: 0;
+}
+
+.profile-info h1 {
+  font-size: 1.1rem;
+  color: var(--text-heading);
+  margin-bottom: 0.25rem;
+}
+
+.profile-info .handle {
+  color: var(--accent-blue);
+  font-family: monospace;
+  font-size: 0.75rem;
+}
+
+.profile-info hr {
+  margin: 1.25rem 0;
+}
+
+.profile-info p {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile-info .accent {
+  font-weight: bold;
+  color: var(--accent-amber);
+  transition: color 0.15s ease;
+}
+
+.profile-info .accent:hover {
+  color: var(--accent-amber-hover);
+}
+
+.profile-info .inline-flex {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: bold;
+  color: var(--text-heading);
+}
+
+@media (min-width: 768px) {
+  .profile-info {
+    text-align: left;
+  }
 }
 
 .bg-blur {
@@ -16,8 +161,62 @@ body {
   pointer-events: none;
 }
 
-footer a, footer span {
-  text-shadow: 0 1px 4px rgba(0,0,0,0.6), 0 0 8px rgba(0,0,0,0.4);
+.bg-tint {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  background: rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  footer {
+    position: fixed;
+    bottom: 0;
+    padding: 1.25rem 1rem;
+  }
+}
+
+footer nav {
+  justify-content: center;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  color: #d1d5db;
+  font-size: 0.75rem;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 999px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+footer a:hover {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.65);
 }
 
 [class^="iconoir-"]::before {
