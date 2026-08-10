@@ -1,36 +1,61 @@
 :root {
-  --pico-font-family: Signika, Roboto, sans-serif;
-  --card-bg: rgba(0, 0, 0, 0.6);
-  --text-muted: #9ca3af;
+  --pico-font-size: 100%;
+  --pico-font-family: "Crete Round", Georgia, serif;
+
+  --card-bg: rgba(10, 10, 10, 0.9);
   --text-heading: #f3f4f6;
   --accent-blue: #3b82f6;
   --accent-amber: #d97706;
   --accent-amber-hover: #fbbf24;
+
+  /* Route Pico's own link/heading/muted-text theming through our palette */
+  --pico-primary: var(--accent-amber);
+  --pico-primary-hover: var(--accent-amber-hover);
+  --pico-primary-underline: var(--accent-amber);
+  --pico-muted-color: #9ca3af;
+  --pico-h1-color: var(--text-heading);
+  --pico-h2-color: var(--text-heading);
+  --pico-h3-color: var(--text-heading);
+  --pico-h4-color: var(--text-heading);
+  --pico-h5-color: var(--text-heading);
+  --pico-h6-color: var(--text-heading);
 }
 
 html {
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+.bg-image {
+  position: fixed;
+  inset: 0;
+  z-index: -20;
+  background-image: var(--bg-url);
   background-size: cover;
   background-position: center;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
-  -webkit-font-smoothing: antialiased;
+  transform: scale(1.05);
+  will-change: transform;
+  pointer-events: none;
 }
 
 .attribution {
-  position: absolute;
-  top: 0;
+  position: fixed;
+  bottom: 0;
   right: 1rem;
   margin: 0;
   padding: 0.5rem 0;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: rgba(156, 163, 175, 0.5);
+  z-index: 1;
 }
 
 .attribution a {
@@ -42,35 +67,84 @@ body {
   color: rgba(229, 231, 235, 0.5);
 }
 
-main.container {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 1rem 1.5rem;
+/* Header */
+
+.site-header {
+  background: rgba(8, 8, 8, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0;
 }
 
-.profile-card {
+.site-header nav {
+  --pico-nav-element-spacing-vertical: 0.85rem;
+  --pico-nav-element-spacing-horizontal: 1.25rem;
+  --pico-nav-link-spacing-vertical: 0.5rem;
+  --pico-nav-link-spacing-horizontal: 0.75rem;
+  max-width: 68rem;
+  margin: 0 auto;
+}
+
+.site-header a {
+  color: var(--pico-muted-color);
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: color 0.15s ease;
+}
+
+.site-header a:hover {
+  color: var(--text-heading);
+}
+
+.site-header .site-logo {
+  color: var(--text-heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.site-header a[aria-current="page"] {
+  color: var(--accent-amber);
+}
+
+/* Main content areas */
+
+main.container {
+  flex: 1;
+  width: 100%;
+  padding: calc(var(--pico-spacing) * 2) var(--pico-spacing) calc(var(--pico-spacing) * 2.5);
+}
+
+.page {
+  padding-top: 3.5rem;
+  padding-bottom: 4rem;
+}
+
+/* Card */
+
+.card {
+  --pico-card-background-color: var(--card-bg);
+  --pico-card-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  --pico-border-radius: 0.75rem;
+  --pico-block-spacing-vertical: 3.5rem;
+  --pico-block-spacing-horizontal: 3.5rem;
+  max-width: 68rem;
+  width: 100%;
+  margin: 0 auto;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.hero-row {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-  max-width: 56rem;
-  width: 100%;
-  margin: 0;
-  padding: 1.5rem;
-  background: var(--card-bg);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-radius: 1rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 @media (min-width: 768px) {
-  .profile-card {
+  .hero-row {
     flex-direction: row;
-    padding: 3rem 5rem;
-    gap: 3rem;
+    gap: 4rem;
   }
 }
 
@@ -106,49 +180,173 @@ main.container {
 }
 
 .profile-info h1 {
-  font-size: 1.1rem;
-  color: var(--text-heading);
+  --pico-font-size: 1.05rem;
   margin-bottom: 0.25rem;
 }
 
 .profile-info .handle {
   color: var(--accent-blue);
   font-family: monospace;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 
 .profile-info hr {
-  margin: 1.25rem 0;
+  margin: 2rem 0;
 }
 
 .profile-info p {
-  color: var(--text-muted);
-  font-size: 0.75rem;
-  margin-bottom: 0.5rem;
-}
-
-.profile-info .accent {
-  font-weight: bold;
-  color: var(--accent-amber);
-  transition: color 0.15s ease;
-}
-
-.profile-info .accent:hover {
-  color: var(--accent-amber-hover);
-}
-
-.profile-info .inline-flex {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-weight: bold;
-  color: var(--text-heading);
+  color: var(--pico-muted-color);
+  font-size: 0.8rem;
+  margin-bottom: 1.25rem;
 }
 
 @media (min-width: 768px) {
   .profile-info {
     text-align: left;
   }
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .hero-actions {
+    justify-content: flex-start;
+  }
+}
+
+/* Content pages (About, Projects) */
+
+.page-card h2 {
+  --pico-font-size: 1.3rem;
+}
+
+.page-card hgroup {
+  margin-bottom: 1rem;
+}
+
+.page-card hgroup p {
+  color: var(--pico-muted-color);
+  font-size: 0.9rem;
+}
+
+.section-divider {
+  margin: 2.5rem 0;
+}
+
+.page-card section + section {
+  margin-top: 3.5rem;
+}
+
+.page-card h3 {
+  --pico-font-size: 1.05rem;
+  margin-bottom: 1.25rem;
+}
+
+.page-card p,
+.page-card li {
+  color: var(--pico-muted-color);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+.page-heading {
+  max-width: 68rem;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  text-shadow:
+    -2px -2px 0 rgba(0, 0, 0, 0.85),
+    2px -2px 0 rgba(0, 0, 0, 0.85),
+    -2px 2px 0 rgba(0, 0, 0, 0.85),
+    2px 2px 0 rgba(0, 0, 0, 0.85),
+    0 -2px 0 rgba(0, 0, 0, 0.85),
+    0 2px 0 rgba(0, 0, 0, 0.85),
+    -2px 0 0 rgba(0, 0, 0, 0.85),
+    2px 0 0 rgba(0, 0, 0, 0.85);
+}
+
+.page-heading h1 {
+  --pico-font-size: 1.3rem;
+}
+
+.page-heading p {
+  color: var(--pico-muted-color);
+  font-size: 0.9rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 68rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid-footnote {
+  max-width: 68rem;
+  margin: 2.5rem auto 0;
+  text-align: center;
+  color: var(--pico-muted-color);
+  font-size: 0.9rem;
+  text-shadow:
+    -2px -2px 0 rgba(0, 0, 0, 0.85),
+    2px -2px 0 rgba(0, 0, 0, 0.85),
+    -2px 2px 0 rgba(0, 0, 0, 0.85),
+    2px 2px 0 rgba(0, 0, 0, 0.85),
+    0 -2px 0 rgba(0, 0, 0, 0.85),
+    0 2px 0 rgba(0, 0, 0, 0.85),
+    -2px 0 0 rgba(0, 0, 0, 0.85),
+    2px 0 0 rgba(0, 0, 0, 0.85);
+}
+
+.project-card {
+  --pico-block-spacing-vertical: 3rem;
+  --pico-block-spacing-horizontal: 3rem;
+  max-width: none;
+  margin: 0;
+}
+
+.project-card.place-card {
+  --pico-card-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), inset 0 0 0 2px var(--card-bg);
+}
+
+.place-card > header {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), var(--place-photo);
+  background-size: cover;
+  background-position: center;
+}
+
+.place-card > header h2 {
+  --pico-font-size: 1.5rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.project-card h3 {
+  --pico-font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.project-card p {
+  color: var(--pico-muted-color);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  line-height: 1.7;
 }
 
 .bg-blur {
@@ -165,21 +363,19 @@ main.container {
   position: fixed;
   inset: 0;
   z-index: -10;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.65);
   pointer-events: none;
 }
 
 footer {
   position: relative;
   width: 100%;
-  padding: 1rem;
+  padding: 1.75rem 1.5rem;
 }
 
 @media (min-width: 768px) {
   footer {
-    position: fixed;
-    bottom: 0;
-    padding: 1.25rem 1rem;
+    padding: 2.25rem 1.5rem;
   }
 }
 
@@ -202,21 +398,19 @@ footer ul {
 footer a {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.4rem 0.75rem;
+  gap: 0.5rem;
+  padding: 0.65rem 1.15rem;
   color: #d1d5db;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   text-decoration: none;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 999px;
+  background: rgba(8, 8, 8, 0.85);
+  border-radius: 1000px;
   transition: color 0.15s ease, background-color 0.15s ease;
 }
 
 footer a:hover {
   color: #fff;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.95);
 }
 
 [class^="iconoir-"]::before {

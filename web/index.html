@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>barsoo // home</title>
+  <script src="assets/bg-select.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css">
   <link rel="stylesheet" href="style.css">
@@ -17,34 +18,59 @@
     Favicon &amp; Background by <a href="https://craftpix.net/">@craftpix</a>
   </p>
 
+  <header class="site-header">
+    <nav class="container">
+      <ul>
+        <li><a href="index.html" class="site-logo" aria-current="page">barsoo //</a></li>
+      </ul>
+      <ul>
+        <li><a href="projects.html">[Work]</a></li>
+        <li><a href="travel.html">[Travel]</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <main class="container">
-    <article class="profile-card">
-      <img
-        src="assets/beautiful.jpg"
-        alt="barsoosayque"
-        class="avatar"
-      >
-      <div class="profile-info">
-        <hgroup>
-          <h1>Egor Tolstonozhenko</h1>
-          <p class="handle">@barsoosayque</p>
-        </hgroup>
-        <hr>
-        <p>
-          Game Developer at
-          <a href="https://kisya.games" class="accent">Kisya Games</a>
-          and
-          <a href="https://github.com/adventure-simulator-group" class="accent">Adventure Simulator Group</a>.
-        </p>
-        <p>
-          Current timezone:
-          <span class="inline-flex"><i class="iconoir-time-zone"></i> UTC+6</span>
-        </p>
-        <p>I speak: 🇷🇺 🇺🇸</p>
+    <hgroup class="page-heading">
+      <h1>Hello</h1>
+      <p>Welcome to my personal webspace.</p>
+    </hgroup>
+    
+    <article class="card page-card">
+      <div class="hero-row">
+        <img
+          src="assets/beautiful.jpg"
+          alt="barsoosayque"
+          class="avatar"
+        >
+        <div class="profile-info">
+          <hgroup>
+            <h1>Egor Tolstonozhenko</h1>
+            <p class="handle">@barsoosayque</p>
+          </hgroup>
+          <hr>
+          <h2>About me</h2>
+          <p>
+            Currently I'm embracing game developer lifestyle, so you could say I'm professionally unemployed.
+            In times before, I used to be a software engineer, creating absolute abominations in the cyberspace.
+          </p>
+          <p>
+            I enjoy things slow and I'm not very proactive. I'm just chill like that. Please remember this crucial piece of information.
+            In my spare time I usually bedrot, play retrogames or strategy games, and ocasionally play guitar.
+          </p>
+          <hr>
+          <h2>A few details</h2>
+          <ul>
+            <li><i class="iconoir-pin-solid"></i> Residence: <i>Kyrgyzstan, Bishkek (UTC+6)</i></li>
+            <li><i class="iconoir-language"></i> Speaking: 🇷🇺/🇺🇸</li>
+            <li><i class="iconoir-heart-solid"></i> Doggo: <i>Alisa (samoyed babygirl)</i></li>
+          </ul>
+        </div>
       </div>
     </article>
   </main>
 
+  <div class="bg-image"></div>
   <div class="bg-blur"></div>
   <div class="bg-tint"></div>
 
@@ -53,18 +79,12 @@
       <ul>
         <li><a href="https://github.com/barsoosayque"><i class="iconoir-github"></i> GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/e-tolstonozhenko"><i class="iconoir-linkedin"></i> LinkedIn</a></li>
-        <li><a href="mailto:mail@barsoo.xyz"><i class="iconoir-mail"></i> Mail</a></li>
+        <li><a href="mailto:mail@barsoo.xyz"><i class="iconoir-mail-solid"></i> Mail</a></li>
         <li><a href="https://t.me/jeg_er_osten"><i class="iconoir-telegram"></i> Telegram</a></li>
       </ul>
     </nav>
   </footer>
 
-  <script>
-    var imgs = [
-      '01.png', '02.png', '03.png', '04.png', '05.png',
-      '06.png', '07.png', '08.png', '09.png', '10.png',
-    ]
-    document.body.style.backgroundImage = 'url(assets/bg/' + imgs[Math.floor(Math.random() * imgs.length)] + ')'
-  </script>
+  <script src="assets/site.js"></script>
 </body>
 </html>
