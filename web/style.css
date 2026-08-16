@@ -401,6 +401,27 @@ main.container {
   background-position: center;
 }
 
+.place-russia > header {
+  background-position: center;
+  background-position-y: 20%;
+}
+
+.place-montenegro > header {
+  background-size: 150%;
+  background-position-y: 60%;
+  background-position-x: 0%;
+}
+
+.place-thailand > header {
+  background-position: center;
+  background-size: 110%;
+  background-position-y: 60%;
+}
+
+.place-vietnam > header {
+  background-position: center;
+}
+
 .place-card > header h2 {
   --pico-font-size: 1.5rem;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
