@@ -3,6 +3,7 @@
   --pico-font-family: "Crete Round", Georgia, serif;
 
   --card-bg: rgba(10, 10, 10, 0.9);
+  --divider-color: rgba(255, 255, 255, 0.08);
   --text-heading: #f3f4f6;
   --accent-blue: #3b82f6;
   --accent-amber: #d97706;
@@ -71,7 +72,7 @@ body {
 
 .site-header {
   background: rgba(8, 8, 8, 0.95);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--divider-color);
   padding: 0;
 }
 
@@ -122,8 +123,9 @@ main.container {
 
 .card {
   --pico-card-background-color: var(--card-bg);
-  --pico-card-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-  --pico-border-radius: 0.75rem;
+  --pico-card-box-shadow: none;
+  --pico-border-radius: 0;
+  --card-corner-cut: 1.25rem;
   --pico-block-spacing-vertical: 3.5rem;
   --pico-block-spacing-horizontal: 3.5rem;
   max-width: 68rem;
@@ -131,6 +133,15 @@ main.container {
   margin: 0 auto;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.55));
+  clip-path: polygon(
+    var(--card-corner-cut) 0,
+    100% 0,
+    100% calc(100% - var(--card-corner-cut)),
+    calc(100% - var(--card-corner-cut)) 100%,
+    0 100%,
+    0 var(--card-corner-cut)
+  );
 }
 
 .hero-row {
@@ -151,9 +162,9 @@ main.container {
 .avatar {
   width: 6rem;
   height: 6rem;
-  border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
+  border: var(--pico-border-width) solid var(--divider-color);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
 }
 
@@ -192,6 +203,7 @@ main.container {
 
 .profile-info hr {
   margin: 2rem 0;
+  border-top-color: var(--divider-color);
 }
 
 .profile-info p {
@@ -203,6 +215,63 @@ main.container {
 @media (min-width: 768px) {
   .profile-info {
     text-align: left;
+  }
+}
+
+.fact-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fact-counter {
+  color: var(--pico-muted-color);
+  font-family: monospace;
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+
+.fact-reroll {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-top: 0.75rem;
+  border: none;
+  background: none;
+  color: inherit;
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.fact-reroll:hover {
+  color: var(--accent-amber);
+}
+
+.fact-reroll:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.fact-reroll:focus-visible {
+  outline: 1px solid var(--accent-amber);
+  outline-offset: 2px;
+}
+
+.fact-reroll i::before {
+  margin-bottom: 0;
+}
+
+.fact-reroll.spinning i {
+  display: inline-block;
+  animation: fact-reroll-spin 0.2s ease-in-out;
+}
+
+@keyframes fact-reroll-spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -320,7 +389,7 @@ main.container {
 }
 
 .project-card.place-card {
-  --pico-card-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), inset 0 0 0 2px var(--card-bg);
+  --pico-card-box-shadow: inset 0 0 0 2px var(--card-bg);
 }
 
 .place-card > header {
