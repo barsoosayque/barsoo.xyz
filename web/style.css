@@ -155,13 +155,31 @@ main.container {
 @media (min-width: 768px) {
   .hero-row {
     flex-direction: row;
+    align-items: flex-start;
     gap: 4rem;
   }
 }
 
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.hero-details h2 {
+  --pico-font-size: 1.05rem;
+}
+
+.hero-details ul {
+  text-align: left;
+}
+
 .avatar {
-  width: 6rem;
-  height: 6rem;
+  width: 8rem;
+  height: 8rem;
   object-fit: cover;
   flex-shrink: 0;
   border: var(--pico-border-width) solid var(--divider-color);
@@ -170,20 +188,26 @@ main.container {
 
 @media (min-width: 640px) {
   .avatar {
-    width: 9rem;
-    height: 9rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .avatar {
     width: 12rem;
     height: 12rem;
   }
 }
 
+@media (min-width: 768px) {
+  .avatar {
+    width: 16rem;
+    height: 16rem;
+  }
+}
+
 .profile-info {
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .profile-info {
+    text-align: left;
+  }
 }
 
 .profile-info hgroup {
@@ -212,10 +236,9 @@ main.container {
   margin-bottom: 1.25rem;
 }
 
-@media (min-width: 768px) {
-  .profile-info {
-    text-align: left;
-  }
+#random-fact {
+  line-height: 1.5;
+  min-height: calc(1.5em * 3);
 }
 
 .fact-heading {
